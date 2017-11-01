@@ -1,10 +1,10 @@
-#!/bin/bash
+#!/bin/dash
 set -e
 
-if [[ "$1" == "bitcoin-cli" || "$1" == "bitcoin-tx" || "$1" == "bitcoind" || "$1" == "test_bitcoin" ]]; then
+if [ "$1" = "bitcoin-cli" -o "$1" = "bitcoind" ]; then
 	mkdir -p "$BITCOIN_DATA"
 
-	if [[ ! -s "$BITCOIN_DATA/bitcoin.conf" ]]; then
+	if [ ! -s "$BITCOIN_DATA/bitcoin.conf" ]; then
 		cat <<-EOF > "$BITCOIN_DATA/bitcoin.conf"
 		printtoconsole=1
 		rpcallowip=::/0
