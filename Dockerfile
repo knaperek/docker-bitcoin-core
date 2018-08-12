@@ -7,10 +7,10 @@ RUN set -ex \
 	&& apt-get install -qq --no-install-recommends ca-certificates dirmngr gosu gpg wget \
 	&& rm -rf /var/lib/apt/lists/*
 
-ENV BITCOIN_VERSION=0.16.0 \
-	BITCOIN_URL=https://bitcoincore.org/bin/bitcoin-core-0.16.0/bitcoin-0.16.0-x86_64-linux-gnu.tar.gz \
-	BITCOIN_SHA256=e6322c69bcc974a29e6a715e0ecb8799d2d21691d683eeb8fef65fc5f6a66477 \
-	BITCOIN_ASC_URL=https://bitcoincore.org/bin/bitcoin-core-0.16.0/SHA256SUMS.asc \
+ENV BITCOIN_VERSION=0.16.1 \
+	BITCOIN_URL=https://bitcoincore.org/bin/bitcoin-core-0.16.1/bitcoin-0.16.1-x86_64-linux-gnu.tar.gz \
+	BITCOIN_SHA256=10b31d17351ff4c7929cf955e4d24a2398b0ce91509f707faf8596940c12432a \
+	BITCOIN_ASC_URL=https://bitcoincore.org/bin/bitcoin-core-0.16.1/SHA256SUMS.asc \
 	BITCOIN_PGP_KEY=01EA5486DE18A882D4C2684590C8019E36C2E964 \
 	BITCOIN_DATA=/data
 
