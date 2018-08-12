@@ -8,8 +8,8 @@ RUN set -ex \
 	&& rm -rf /var/lib/apt/lists/*
 
 ENV BITCOIN_VERSION=0.15.1 \
-	BITCOIN_URL=https://bitcoincore.org/bin/bitcoin-core-0.15.1/bitcoin-0.15.1-aarch64-linux-gnu.tar.gz \
-	BITCOIN_SHA256=d64d2e27cad78bbd2a0268bdaa9efa3f1eca670a4fab462b5e851699c780e3a0 \
+	BITCOIN_URL=https://bitcoincore.org/bin/bitcoin-core-0.15.1/bitcoin-0.15.1-x86_64-linux-gnu.tar.gz \
+	BITCOIN_SHA256=387c2e12c67250892b0814f26a5a38f837ca8ab68c86af517f975a2a2710225b \
 	BITCOIN_ASC_URL=https://bitcoincore.org/bin/bitcoin-core-0.15.1/SHA256SUMS.asc \
 	BITCOIN_PGP_KEY=01EA5486DE18A882D4C2684590C8019E36C2E964 \
 	BITCOIN_DATA=/data
