@@ -2,8 +2,7 @@ FROM debian:stretch-slim as builder
 
 RUN set -ex \
 	&& apt-get update \
-	&& apt-get install -qq --no-install-recommends ca-certificates dirmngr gpg wget \
-	&& rm -rf /var/lib/apt/lists/*
+	&& apt-get install -qq --no-install-recommends ca-certificates dirmngr gpg wget
 
 ENV BITCOIN_VERSION=0.17.1
 ENV BITCOIN_URL=https://bitcoincore.org/bin/bitcoin-core-$BITCOIN_VERSION/bitcoin-$BITCOIN_VERSION-x86_64-linux-gnu.tar.gz \
@@ -18,8 +17,7 @@ RUN set -ex \
 	&& gpg --no-tty --keyserver keyserver.ubuntu.com --recv-keys "$BITCOIN_PGP_KEY" \
 	&& wget -qO bitcoin.asc "$BITCOIN_ASC_URL" \
 	&& gpg --verify bitcoin.asc \
-	&& tar -xzvf bitcoin.tar.gz -C /usr/local --strip-components=1 --exclude=*-qt \
-	&& rm -rf /tmp/*
+	&& tar -xzvf bitcoin.tar.gz -C /usr/local --strip-components=1 --exclude=*-qt
 
 
 FROM debian:stretch-slim
