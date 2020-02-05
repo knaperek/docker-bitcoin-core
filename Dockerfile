@@ -1,12 +1,12 @@
-FROM debian:stretch-slim as builder
+FROM debian:buster-slim as builder
 
 RUN set -ex \
 	&& apt-get update \
-	&& apt-get install -qq --no-install-recommends ca-certificates dirmngr gpg wget
+	&& apt-get install -qq --no-install-recommends ca-certificates dirmngr gpg gnupg-agent wget
 
-ENV BITCOIN_VERSION=0.18.0
+ENV BITCOIN_VERSION=0.19.0.1
 ENV BITCOIN_URL=https://bitcoincore.org/bin/bitcoin-core-$BITCOIN_VERSION/bitcoin-$BITCOIN_VERSION-x86_64-linux-gnu.tar.gz \
-	BITCOIN_SHA256=5146ac5310133fbb01439666131588006543ab5364435b748ddfc95a8cb8d63f \
+	BITCOIN_SHA256=732cc96ae2e5e25603edf76b8c8af976fe518dd925f7e674710c6c8ee5189204 \
 	BITCOIN_ASC_URL=https://bitcoincore.org/bin/bitcoin-core-$BITCOIN_VERSION/SHA256SUMS.asc \
 	BITCOIN_PGP_KEY=01EA5486DE18A882D4C2684590C8019E36C2E964
 
@@ -20,7 +20,7 @@ RUN set -ex \
 	&& tar -xzvf bitcoin.tar.gz -C /usr/local --strip-components=1 --exclude=*-qt
 
 
-FROM debian:stretch-slim
+FROM debian:buster-slim
 COPY --from=builder /usr/local/bin/bitcoind /usr/local/bin/bitcoin-cli /usr/local/bin/
 RUN groupadd -r bitcoin && useradd -r -m -g bitcoin bitcoin \
 	&& ln -s /usr/local/bin/bitcoin-cli /usr/local/bin/c
