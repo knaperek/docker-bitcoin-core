@@ -4,9 +4,9 @@ RUN set -ex \
 	&& apt-get update \
 	&& apt-get install -qq --no-install-recommends ca-certificates dirmngr gpg gnupg-agent wget
 
-ENV BITCOIN_VERSION=0.20.1
+ENV BITCOIN_VERSION=0.21.1
 ENV BITCOIN_URL=https://bitcoincore.org/bin/bitcoin-core-$BITCOIN_VERSION/bitcoin-$BITCOIN_VERSION-x86_64-linux-gnu.tar.gz \
-	BITCOIN_SHA256=376194f06596ecfa40331167c39bc70c355f960280bd2a645fdbf18f66527397 \
+	BITCOIN_SHA256=366eb44a7a0aa5bd342deea215ec19a184a11f2ca22220304ebb20b9c8917e2b \
 	BITCOIN_ASC_URL=https://bitcoincore.org/bin/bitcoin-core-$BITCOIN_VERSION/SHA256SUMS.asc \
 	BITCOIN_PGP_KEY=01EA5486DE18A882D4C2684590C8019E36C2E964
 
