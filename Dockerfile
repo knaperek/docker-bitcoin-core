@@ -1,12 +1,12 @@
-FROM debian:bookworm-slim as builder
+FROM debian:bookworm-slim AS builder
 
 RUN set -ex \
 	&& apt-get update \
 	&& apt-get install -qq --no-install-recommends ca-certificates wget
 
-ENV BITCOIN_VERSION=25.0
+ENV BITCOIN_VERSION=25.2
 ENV BITCOIN_URL=https://bitcoincore.org/bin/bitcoin-core-$BITCOIN_VERSION/bitcoin-$BITCOIN_VERSION-x86_64-linux-gnu.tar.gz \
-	BITCOIN_SHA256=33930d432593e49d58a9bff4c30078823e9af5d98594d2935862788ce8a20aec
+	BITCOIN_SHA256=8d8c387e597e0edfc256f0bbace1dac3ad1ebf4a3c06da3e2975fda333817dea
 
 RUN set -ex \
 	&& cd /tmp \
